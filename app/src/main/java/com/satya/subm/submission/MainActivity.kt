@@ -1,5 +1,6 @@
 package com.satya.subm.submission
 
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.app.ActionBarDrawerToggle
@@ -25,6 +26,7 @@ class MainActivity : AppCompatActivity() {
 
         drawer_layout = findViewById(R.id.drawer_layout)
         toolbar = findViewById(R.id.toolbar)
+        toolbar.setTitleTextColor(Color.WHITE);
         nav_view = findViewById(R.id.nav_view)
 
         setSupportActionBar(findViewById(R.id.toolbar))
