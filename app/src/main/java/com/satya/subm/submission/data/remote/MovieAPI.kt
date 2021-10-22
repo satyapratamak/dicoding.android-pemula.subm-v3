@@ -1,8 +1,9 @@
 package com.satya.subm.submission.data.remote
 
-import androidx.room.Query
+
 import com.satya.subm.submission.BuildConfig
 import retrofit2.http.GET
+import retrofit2.http.Query
 
 interface MovieAPI {
 
@@ -14,7 +15,5 @@ interface MovieAPI {
     @GET("movie/now_playing?api_key=$API_KEY")
     suspend fun getNowPlayingMovies(
         @Query("page") position: Int
-    ) : MovieResponse {
-
-    }
+    ) : MovieResponse
 }
