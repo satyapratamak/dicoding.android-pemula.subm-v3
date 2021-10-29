@@ -8,4 +8,5 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MovieViewModel @Inject constructor(private val repository: MovieRepository) : ViewModel() {
+    val movies = repository.getNowPlayingMovies()
 }

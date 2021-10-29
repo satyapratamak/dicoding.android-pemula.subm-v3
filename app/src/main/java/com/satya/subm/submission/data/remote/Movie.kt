@@ -21,6 +21,6 @@ data class Movie(
     val vote_count: String?,
 
     ) : Parcelable{
-    val baseUrl: String get() = "https://image.tmdb.org/t/p/w500"
+    val baseUrl: String get() = "https://image.tmdb.org/t/p/w200"
 
 }
