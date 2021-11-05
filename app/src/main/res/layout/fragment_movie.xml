@@ -36,9 +36,9 @@
         android:text="Data Gagal Dimuat"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/rv_movie"
-        app:layout_constraintStart_toStartOf="@+id/rv_movie"
-        app:layout_constraintTop_toTopOf="@+id/rv_movie"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:visibility="visible" />
 
     <Button
@@ -46,6 +46,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:text="RETRY"
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -57,10 +58,10 @@
         android:layout_height="wrap_content"
         android:text="Movie Tidak Ditemukan"
         android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="@+id/rv_movie"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/rv_movie"
-        app:layout_constraintTop_toTopOf="@+id/rv_movie"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:visibility="visible" />
 
 

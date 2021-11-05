@@ -4,6 +4,7 @@ import android.graphics.Color
 import android.os.Build
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.AdapterView
 import androidx.annotation.RequiresApi
 import androidx.paging.PagingData
 import androidx.paging.PagingDataAdapter
@@ -18,10 +19,24 @@ import java.text.SimpleDateFormat
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
-class MovieAdapter : PagingDataAdapter<Movie, MovieAdapter.MovieViewHolder>(COMPARATOR) {
+class MovieAdapter(private val listener : OnItemClickListener) : PagingDataAdapter<Movie, MovieAdapter.MovieViewHolder>(COMPARATOR) {
 
     inner class MovieViewHolder(private val binding: ItemMovieBinding) :
         RecyclerView.ViewHolder(binding.root) {
+        val randDuration = rand(60, 240)
+        init{
+
+            binding.root.setOnClickListener{
+                val position = bindingAdapterPosition
+
+                if (position != RecyclerView.NO_POSITION){
+                    val item = getItem(position)
+                    if (item != null){
+                        listener.onItemClick(item, randDuration.toString())
+                    }
+                }
+            }
+        }
 
         @RequiresApi(Build.VERSION_CODES.O)
         fun bind(movie: Movie) {
@@ -49,7 +64,7 @@ class MovieAdapter : PagingDataAdapter<Movie, MovieAdapter.MovieViewHolder>(COMP
 
                 }
 
-                val randDuration = rand(60, 240)
+                //val randDuration = rand(60, 240)
                 tvDuration.text = "Duration : ${randDuration.toString()} minutes"
 
                 tvPopularity.text = "Popularity : ${movie.popularity}"
@@ -98,6 +113,10 @@ class MovieAdapter : PagingDataAdapter<Movie, MovieAdapter.MovieViewHolder>(COMP
                 oldItem == newItem
 
         }
+    }
+
+    interface OnItemClickListener{
+        fun onItemClick(movie : Movie, duration : String)
     }
 
 

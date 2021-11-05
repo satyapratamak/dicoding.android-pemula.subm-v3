@@ -20,6 +20,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private lateinit var drawer_layout: DrawerLayout
     private lateinit var toolbar: Toolbar
+    private lateinit var navController:NavController
 
     private lateinit var nav_view: NavigationView
 
@@ -34,8 +35,7 @@ class MainActivity : AppCompatActivity() {
 
         setSupportActionBar(findViewById(R.id.toolbar))
 
-        val navController: NavController =
-            Navigation.findNavController(this, R.id.fragment_container)
+        navController =  Navigation.findNavController(this, R.id.fragment_container)
         NavigationUI.setupWithNavController(nav_view, navController)
         NavigationUI.setupActionBarWithNavController(this, navController, drawer_layout)
 
@@ -71,5 +71,9 @@ class MainActivity : AppCompatActivity() {
             super.onBackPressed()
         }
 
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        return navController.navigateUp() || super.onSupportNavigateUp()
     }
 }
