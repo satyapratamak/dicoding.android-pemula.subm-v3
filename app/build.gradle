@@ -99,7 +99,8 @@ dependencies {
     // RecyclerView
     implementation("androidx.recyclerview:recyclerview:$recyclerViewVersion")
 
-    //RoundedImageView
+    //CircleImageView
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
 
 
 }
